@@ -179,8 +179,17 @@ table.compact td.num{white-space:nowrap}
 .badge-oz-down{background:#fdf1df;color:#8a5a12;border-color:#f0dcb6}
 /* карточка модели на Ozon выше страницы A4: с «не разрывать» Chrome обрезал PDF после первой карточки (17.10.2026) */
 @media print{.art-row{break-inside:auto;page-break-inside:auto}.art-photo{flex:0 0 120px}}
+</style><style>
+.mp .vw{margin-left:auto;display:inline-flex;align-items:stretch;border:1px solid #134063;border-radius:2px;overflow:hidden;background:#fff}
+.mp .vw a{font-size:12px;font-weight:600;padding:6px 12px;color:#134063;text-decoration:none;white-space:nowrap}
+.mp .vw a+a{border-left:1px solid #134063}
+.mp .vw a.on{background:#134063;color:#fff}
+.mp .vw select{font:inherit;font-size:12px;font-weight:600;color:#134063;background:#fff;border:0;border-left:1px solid #134063;padding:0 6px;cursor:pointer}
+.mp a.tab{font-size:12px;font-weight:600;padding:6px 14px;border-radius:2px;border:1px solid #DFE7EE;background:#fff;color:#134063;text-decoration:none}
+@media screen and (max-width:700px){.mp .vw{margin-left:0}}
+@media print{.mp .vw{display:none}}
 </style></head><body><div class="wrap">
-<nav class="mp"><a class="tab" href="https://ivanbobylev1991-hub.github.io/piro-wb-report/">Wildberries</a><span class="on">Ozon</span><span class="off">Яндекс Маркет · скоро</span><span class="off">Lamoda · скоро</span></nav>
+<nav class="mp"><a class="tab" href="https://ivanbobylev1991-hub.github.io/piro-wb-report/">Wildberries</a><span class="on">Ozon</span><span class="off">Яндекс Маркет · скоро</span><span class="off">Lamoda · скоро</span><span class="vw" data-cur="2026-10-12"><a href="./">Каждый день</a><a href="2026-10-12.html" class="on">Неделя 12.10–18.10</a></span></nav>
 <header class="hero"><div class="kick">PIRO · Ozon · еженедельный отчёт</div><h1>Неделя 12.10 – 18.10.2026</h1><div class="rule"></div><div class="sub">Неделя спада вязаной серии: 101 → <b>70 заказов (−31%)</b>, по предельной цене 742 263 → <b>536 252 ₽ (−28%)</b>. Провал — 14–16.10: 6, 7 и 2 заказа в день против 18–19 в начале недели. В эти дни средняя позиция серии в поиске ухудшилась с ~40 до 113–152, а товары в выдаче видели в 2–4 раза меньше людей. Кампании оплаты за клик по каждой модели работали по 13.10, 14–15.10 оплаты за клик не было, с 16.10 работают две общие кампании — «Поло вязка» и «Свитера»; 17.10 позиция вернулась к 33, 18.10 — 13 заказов. По начислениям (выкупы, в основном заказы прошлых недель) продажи серии 221 100 → <b>248 100 ₽</b>, прибыль до налогов 31 024 → <b>42 664 ₽</b>, маржа 14,0% → 17,2%. ДРР серии 4,5% — в норме. Растёт только М-004 (14 → 20 заказов, маржа 22%), у М-006 за неделю нет ни одного заказа.</div></header>
 <section class="section"><div class="kick">Главное за неделю</div><h2>Кабинет</h2><div class="rule"></div>
 <div class="grid grid-5"><div class="kpi"><div class="label">Заказы</div><div class="value">136<span class="unit"> шт</span></div><div class="delta"><span class="down">−48 (−26%)</span><div class="prev">Прошлая неделя: <b>184</b> · на сумму 787 084 ₽</div></div></div><div class="kpi"><div class="label">Продажи (выкупы)</div><div class="value">435 500<span class="unit"> ₽</span></div><div class="delta"><span class="up">+76 875 ₽ (+21%)</span><div class="prev">По цене продавца · к перечислению <b>148 831 ₽</b></div></div></div><div class="kpi"><div class="label">Прибыль до налогов</div><div class="value">80 545<span class="unit"> ₽</span></div><div class="delta"><span class="up">+48 235 ₽ (+149%)</span><div class="prev">Прошлая неделя: <b>32 310 ₽</b> · маржа 18,5%</div></div></div><div class="kpi"><div class="label">Реклама · ДРР</div><div class="value">31 545<span class="unit"> ₽</span></div><div class="delta"><span class="down">+0,5 п.п.</span><div class="prev">ДРР <b>3,5% → 4,0%</b> · клик 9 957, заказ 21 588</div></div></div><div class="kpi"><div class="label">Выкуп 30 дней</div><div class="value">53%<span class="unit"></span></div><div class="delta"><span class="flat">цена покупателя ≈36% от цены продавца</span><div class="prev">Остальное — баллы и скидки Ozon за его счёт</div></div></div></div>
@@ -341,4 +350,14 @@ document.querySelectorAll('.mc').forEach(function(w){
   w.querySelectorAll('svg').forEach(function(svg){svg.addEventListener('mouseleave',function(){
     tip.style.display='none';svg.querySelector('.mguide').style.display='none';});});
 });
+</script><script>
+(function(){var v=document.querySelector('.vw');if(!v||location.protocol==='file:')return;
+fetch('weeks.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(w){v.innerHTML=vw(w.weeks||[],v.dataset.cur);}).catch(function(){});
+function lab(m){var d=new Date(m+'T00:00:00'),e=new Date(d.getTime()+6*864e5),f=function(x){return('0'+x.getDate()).slice(-2)+'.'+('0'+(x.getMonth()+1)).slice(-2);};return f(d)+'–'+f(e);}
+function vw(ws,cur){var h='<a href="./"'+(cur==='live'?' class="on"':'')+'>Каждый день</a>';
+ if(ws.length){h+='<a href="'+ws[0]+'.html"'+(cur===ws[0]?' class="on"':'')+'>Неделя '+lab(ws[0])+'</a>';
+  if(cur!=='live'&&cur!==ws[0])h+='<a href="'+cur+'.html" class="on">Неделя '+lab(cur)+'</a>';
+  if(ws.length>1){h+='<select aria-label="Другие недели" onchange="if(this.value)location.href=this.value"><option value="">Другие недели</option>';
+   ws.forEach(function(m){h+='<option value="'+m+'.html"'+(m===cur?' selected':'')+'>'+lab(m)+'</option>';});h+='</select>';}}
+ return h;}})();
 </script></body></html>
